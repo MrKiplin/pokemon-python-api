@@ -1,7 +1,7 @@
 import httpx
 from typing import Union, List
 
-from src.models.pokemon_models import (
+from src.pokemon_python_api.models.pokemon_models import (
     Pokemon,
     PokemonType,
     PokemonApiResponse,

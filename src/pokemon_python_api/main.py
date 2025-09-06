@@ -1,9 +1,13 @@
 from typing import Union
 from fastapi import FastAPI, Depends, HTTPException, status
 import httpx
+import uvicorn
 
-from src.services.pokemon_service import PokemonService, PokemonNotFound
-from src.models.pokemon_models import Pokemon
+from src.pokemon_python_api.services.pokemon_service import (
+    PokemonService,
+    PokemonNotFound,
+)
+from src.pokemon_python_api.models.pokemon_models import Pokemon
 
 app = FastAPI()
 
@@ -34,3 +38,16 @@ async def read_pokemon(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"An unexpected error occurred: {e}",
         )
+
+
+def start_server():
+    uvicorn.run(
+        "src.pokemon_python_api.main:app",
+        host="127.0.0.1",
+        port=8000,
+        reload=True,
+    )
+
+
+if __name__ == "__main__":
+    start_server()
