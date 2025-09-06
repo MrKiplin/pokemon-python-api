@@ -1,0 +1,23 @@
+[project]
+name = "pokemon-python-api"
+version = "0.1.0"
+description = "Simple Python API for connecting to the pokemon REST API. Search for pokemon info by name or ID."
+authors = [
+    {name = "MrKiplin"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "httpx (>=0.28.1,<0.29.0)",
+    "fastapi (>=0.116.1,<0.117.0)",
+    "uvicorn (>=0.35.0,<0.36.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+start-server = "pokemon_python_api.main:start_server"
