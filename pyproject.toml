@@ -1,7 +1,7 @@
 [project]
 name = "pokemon-python-api"
 version = "0.1.0"
-description = ""
+description = "Simple Python API for connecting to the pokemon REST API. Search for pokemon info by name or ID."
 authors = [
     {name = "MrKiplin"}
 ]
@@ -20,4 +20,4 @@ build-backend = "poetry.core.masonry.api"
 
 
 [tool.poetry.scripts]
-start-server = "pokemon_python_api.main:start_dev_server"
+start-server = "pokemon_python_api.main:start_server"
