@@ -3,7 +3,7 @@ name: test
 on: pull_request
 
 jobs:
-  test:
+  run-tests:
     runs-on: ubuntu-latest
     steps:
       #----------------------------------------------
@@ -53,4 +53,3 @@ jobs:
         run: |
           source .venv/bin/activate
           pytest tests/
-          
