@@ -9,36 +9,12 @@ from src.pokemon_python_api.services.pokemon_service import (
 
 from src.pokemon_python_api.models.pokemon_models import Pokemon
 
-
-# --- Mock Data for HTTP Responses ---
-# This mimics the structure you expect from PokeAPI for a successful response
 MOCK_POKEMON_API_RESPONSE_CHARMANDER = {
     "id": 4,
     "name": "charmander",
-    "base_experience": 62,
-    "height": 6,
-    "is_default": True,
-    "order": 5,
-    "weight": 85,
-    "abilities": [],
-    "forms": [],
-    "game_indices": [],
-    "held_items": [],
-    "location_area_encounters": "",
-    "moves": [],
-    "past_types": [],
-    "species": {"name": "charmander", "url": "https://pokeapi.co/api/v2/species/4/"},
     "sprites": {
-        "back_default": "url_to_back_default",
-        "back_female": None,
-        "back_shiny": "url_to_back_shiny",
-        "back_shiny_female": None,
-        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-        "front_female": None,
-        "front_shiny": "url_to_front_shiny",
-        "front_shiny_female": None,
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
     },
-    "stats": [],
     "types": [
         {
             "slot": 1,
@@ -94,12 +70,11 @@ async def test_get_pokemon_info_success_by_name(pokemon_service, httpx_mock):
     pokemon_info = await pokemon_service.get_pokemon_info("charmander")
 
     assert isinstance(pokemon_info, Pokemon)
-    assert pokemon_info.id == 4
-    assert pokemon_info.name == "charmander"
-    assert pokemon_info.types == ["fire"]
-    assert (
-        pokemon_info.imageURL
-        == "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+    assert pokemon_info == Pokemon(
+        id=4,
+        name="charmander",
+        types=["fire"],
+        imageURL="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
     )
 
 
@@ -117,12 +92,11 @@ async def test_get_pokemon_info_success_by_id(pokemon_service, httpx_mock):
     pokemon_info = await pokemon_service.get_pokemon_info(25)
 
     assert isinstance(pokemon_info, Pokemon)
-    assert pokemon_info.id == 25
-    assert pokemon_info.name == "pikachu"
-    assert pokemon_info.types == ["electric"]
-    assert (
-        pokemon_info.imageURL
-        == "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+    assert pokemon_info == Pokemon(
+        id=25,
+        name="pikachu",
+        types=["electric"],
+        imageURL="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
     )
 
 
