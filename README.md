@@ -23,6 +23,14 @@ Install project dependencies
 poetry install
 ```
 
+## Running the tests
+
+Tests can be run globally from the root directory by running `poetry run pytest`
+
+```shell
+poetry run pytest
+```
+
 ## Built With
 
 ### Languages / Core Tools
@@ -42,6 +50,15 @@ Change to the root directory and run `poetry start-server`
 
 ```shell
 poetry start-server
+```
+
+## OpenAPI Docs
+
+Once server is running, openAPI and redoc documentation can be accessed via the following URL's:
+
+```
+http://<host>:<port>/docs
+http://<host>:<port>/redoc
 ```
 
 ## Versioning
