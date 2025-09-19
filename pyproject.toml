@@ -6,7 +6,6 @@ authors = [
     {name = "MrKiplin"}
 ]
 readme = "README.md"
-package-mode = false
 requires-python = ">=3.13"
 dependencies = [
     "httpx (>=0.28.1,<0.29.0)",
@@ -24,3 +23,7 @@ pytest-asyncio = "^1.1.0"
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+start-server = "src.pokemon_python_api.main:start_server"

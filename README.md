@@ -46,10 +46,10 @@ poetry run pytest
 
 ## Using the App
 
-Change to the root directory and run `poetry start-server`
+Change to the root directory and run `poetry run start-server`
 
 ```shell
-poetry start-server
+poetry run start-server
 ```
 
 ## OpenAPI Docs
@@ -60,6 +60,15 @@ Once server is running, openAPI and redoc documentation can be accessed via the 
 http://<host>:<port>/docs
 http://<host>:<port>/redoc
 ```
+
+## Docker
+
+```
+docker build -t pokemon-api-image .
+docker run -p 8000:8000 pokemon-api-image
+```
+
+You should then be able to access your API at http://localhost:8000
 
 ## Versioning
 
